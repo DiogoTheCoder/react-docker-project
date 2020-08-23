@@ -4,13 +4,26 @@ services:
   react-dev:
     container_name: react-dev
     build:
-      context: .
+      context: app
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
     stdin_open: true
     volumes:
-      - ".:/app"
-      - "/app/node_modules"
+      - "./app:/app"
     environment:
       - NODE_ENV=development
+  api:
+    container_name: api
+    build:
+      context: api
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - DNSDOCK_ALIAS=api.docker
+      - FLASK_APP=main.py
+      - FLASK_ENV=development
+    stdin_open: true
+    volumes:
+      - "./api:/api"

@@ -1,12 +1,11 @@
 FROM node:14.8-alpine
 
+RUN apk add --update --no-cache bash
+
 WORKDIR /app
 
-COPY ./package.json ./package.json
-COPY ./yarn.lock ./yarn.lock
+COPY . ./
 
 RUN yarn install
-
-COPY . ./
 
 CMD ["yarn", "start"]
