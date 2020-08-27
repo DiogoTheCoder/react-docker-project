@@ -5,7 +5,7 @@ services:
     container_name: react-prod
     build:
       context: app
-      dockerfile: Dockerfile-prod
+      dockerfile: app/Dockerfile.prod
     ports:
       - "3000:80"
     stdin_open: true
