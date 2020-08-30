@@ -4,10 +4,14 @@ RUN apk add --update --no-cache bash
 
 WORKDIR /app
 
-COPY . ./
+COPY package.json ./
+COPY yarn.lock ./
 
 RUN yarn install
 
-EXPOSE 80
+COPY . .
+
+ENV PORT=80
+EXPOSE $PORT
 
 CMD ["yarn", "start"]

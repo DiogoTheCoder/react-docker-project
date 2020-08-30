@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.tsx',
   target: 'web',
-  mode: 'development',
+  mode: process.env.NODE_ENV,
   stats: 'minimal',
   output: {
     path: path.resolve(__dirname, 'public'),
@@ -54,7 +54,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'public'),
     host: '0.0.0.0',
-    port: 80,
+    port: process.env.PORT || 80,
     overlay: true,
   },
 };

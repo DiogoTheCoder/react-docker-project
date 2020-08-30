@@ -8,11 +8,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
+    environment:
+      - NODE_ENV=development
     stdin_open: true
     volumes:
       - "./app:/app"
-    environment:
-      - NODE_ENV=development
   api:
     container_name: api
     build:
@@ -21,9 +21,9 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - DNSDOCK_ALIAS=api.docker
       - FLASK_APP=main.py
       - FLASK_ENV=development
+      - IP=0.0.0.0
     stdin_open: true
     volumes:
       - "./api:/api"
