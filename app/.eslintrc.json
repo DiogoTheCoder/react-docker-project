@@ -7,7 +7,10 @@
   },
   "extends": [
     "plugin:react/recommended",
-    "airbnb"
+    "airbnb",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -23,6 +26,9 @@
   "rules": {
     "no-console": "off",
     "react/jsx-filename-extension": "off",
+    "import/prefer-default-export": "off",
+    "no-return-await": "off",
+    "lines-between-class-members": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

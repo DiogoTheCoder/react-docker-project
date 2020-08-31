@@ -1,8 +1,11 @@
 import * as React from 'react';
+import { useSelector } from 'react-redux';
 import logo from './assets/icons/logo.svg';
 import './assets/styles/App.scss';
+import { RootState } from './reducers';
 
 function App() {
+  const githubLink = useSelector((state: RootState) => state.githubLink);
   return (
     <div className="App">
       <header className="App-header">
@@ -16,11 +19,11 @@ function App() {
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href={githubLink.data.toString()}
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          DiogoTheCoder
         </a>
       </header>
     </div>
