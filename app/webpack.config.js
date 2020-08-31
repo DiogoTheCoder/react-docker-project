@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
+/* eslint-enable */
 
 module.exports = {
   entry: './src/index.tsx',
@@ -48,6 +51,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       favicon: path.resolve(__dirname, 'src', 'assets', 'icons', 'favicon.ico'),
       template: path.resolve(__dirname, 'src', 'index.html'),
+    }),
+    new ServiceWorkerWebpackPlugin({
+      entry: path.resolve(__dirname, 'src', 'serviceWorker.js'),
     }),
   ],
   devtool: 'eval-cheap-module-source-map',
